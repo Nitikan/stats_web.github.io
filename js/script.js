@@ -1,79 +1,41 @@
-var options = {
-    scaleLabel: function (label) {
-        return '$' + label.value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-    },
-    scales: {
-        yAxes: [{
-            ticks: {
-                beginAtZero: true
-            }
-        }],
-        xAxes: [{
-            ticks: {
-                callback: function (value, index, values) {
-                    if (parseInt(value) >= 1000) {
-                        return '$' + value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-                    } else {
-                        return '$' + value;
-                    }
-                }
-            }
-        }]
-    }
+google.charts.load('current', {'packages':['corechart']});
+google.charts.setOnLoadCallback(drawChart);
+
+// Draw the chart and set the chart values
+function drawChart() {
+  var data = google.visualization.arrayToDataTable([
+  ['Name', 'Budget(Million Baht)'],
+  ['A01', 108094],
+  ['A02', 5200],
+  ['A03', 9766],
+  ['A04', 32142],
+  ['A05', 765],
+  ['A06', 61844],
+  ['A07', 2300],
+  ['A08', 600],
+  ['A09', 0],
+  ['A10', 0],
+  ['A11', 0],
+  ['A12', 0],
+  ['A13', 0],
+  ['A14', 0],
+  ['A15', 2700],
+  ['A16', 66000],
+  ['A17', 0],
+  ['A18', 12800],
+  ['A19', 120000],
+  ['A20', 0],
+  ['A21', 0],
+  ['A22', 0],
+  ['A23', 0],
+  ['A24', 0],
+  ['A25', 0]
+]);
+
+  // Optional; add a title and set the width and height of the chart
+  var options = {'width':800, 'height':400};
+
+  // Display the chart inside the <div> element with id="piechart"
+  var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+  chart.draw(data, options);
 }
-var ctx = document.getElementById('myChart').getContext('2d');
-var myChart = new Chart(ctx, {
-    type: 'horizontalBar',
-    data: {
-        labels: [],
-        datasets: [{
-            label: 'Revenue',
-            data: [],
-            backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)'
-            ],
-            borderColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)'
-            ],
-            borderWidth: 1
-        }]
-    },
-    options: options
-});
-
-var revenue = []
-
-$.get("./data/revenue2.csv", function (res) {
-    revenue = $.csv.toArrays(res);
-    for (let i = 1; i < revenue.length; i++) {
-        myChart.data.labels.push(revenue[i][0])
-        myChart.data.datasets[0].data.push(revenue[i][1]);
-    }
-    myChart.update()
-});
-
-$('#slider').change(function () {
-    $('#year').html("Year: " + $('#slider').val())
-    const year = $('#slider').val();
-    let data = [];
-    for (let i = 0; i < revenue[0].length; i++) {
-        myChart.data.datasets.forEach((dataset) => {
-            dataset.data.pop();
-        });
-    }
-
-    for (let i = 1; i < revenue.length; i++) {
-        myChart.data.datasets[0].data.push(revenue[i][year - 2002]);
-    }
-    myChart.update()
-});
