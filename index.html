@@ -1,1 +1,97 @@
-Hello World
+<html>
+
+<head>
+  <title>Expenditure Central Budget</title>
+  <script src="./js/jquery-3.4.0.js"></script>
+  <script src="./js/jquery.csv.min.js"></script>
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.min.js"></script>
+  <script src="./js/revenue.js"></script>
+  <script src="./js/gdp.js"></script>
+  <script src="./js/Time-series.js"></script>
+  <script src="./js/gdp-factor.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/simple-parallax-js@4.0.0/dist/simpleParallax.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.3/d3.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/1.6.9/topojson.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/datamaps/0.5.9/datamaps.world.min.js"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="./style.css" />
+</head>
+
+<body>
+    <nav class="navbar navbar-dark", style="background-color: #7bb8d9" >
+      <a class="navbar-brand navbar-brand-logo" href="#">
+        <span class="logo">
+          <img src = 'img/money.png' style="width:50px; height: 50px">
+        </span>
+        <span class="brand">Expenditure Central Budget </span>
+      </a>
+        <ul class="nav nav-pills">
+          <li class="nav-item">
+            <a class="nav-link" href="#revenue-year">Descriptive</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#gdp">GDP</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="#gdp-country">Time Series</a>
+            </li>
+        </ul>
+    </nav>
+  <div data-aos="flip-down" id="map">
+      <div id="choropleth"></div>
+  </div>
+  <div class="container">
+
+    <hr>
+
+    <div data-aos = "fade-up" class="revenue-year" >
+      <img id = 'revenue-year' class="img_thumbnail" >
+      <h1>Revenue by year</h1>
+      <canvas id="myChart" class="graph" width="300" height="150"></canvas>
+      <p id="year">Year: 2003</p>
+      <input id="slider" class="slider" type="range" min="2003" max="2013" value="2003">
+      <script src="./js/script.js"></script>
+    </div>
+
+    <hr>
+
+    <div data-aos = "fade-up" class="gdp-factor">
+        <img  id = 'gdp-factor' class="img_thumbnail">
+        <h1>GDP - Factor</h1>
+        <div id="DashBoard-GDP-Factor" class="graph" style="width: 1000px; height: 500px"></div>
+        <div>
+          <input class="btn btn-primary" type="button" id="Bulgaria-Factor" value="Bulgaria" />
+          <input class="btn btn-primary" type="button" id="Greece-Factor" value="Greece" />
+          <input class="btn btn-primary" type="button" id="Poland-Factor" value="Poland" />
+          <input class="btn btn-primary" type="button" id="Romania-Factor" value="Romania" />
+          <input class="btn btn-primary" type="button" id="Russia-Factor" value="Russia" />
+        </div>
+      </div>
+
+    <hr>
+    <div data-aos = "fade-up"  class="Time" >
+        <img id = 'gdp-country' class="img_thumbnail">
+        <h1>Time Series Of Expenditure Central Budget</h1>
+        <div id="DashBoard-Time-Series" class="graph" style="width: 1000px; height: 500px"></div>
+    </div>
+    <hr>
+
+
+  </div>
+</body>
+<script>
+  var images = document.getElementsByClassName("img_thumbnail");
+  new simpleParallax(images, {
+    orientation: 'left',
+    scale: 3.5,
+    overflow: true
+  });
+  AOS.init();
+</script>
+
+
+</html>
