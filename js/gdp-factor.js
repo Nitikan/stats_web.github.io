@@ -4,17 +4,17 @@ google.charts.load('current', {
   google.charts.setOnLoadCallback(drawChart);
   
   function drawChart() {
-    $.get("./data/Bulgaria-gdp.csv", function (csvString) {
+    $.get("./data/A1.csv", function (csvString) {
       var arrayData = $.csv.toArrays(csvString, {
         onParseValue: $.csv.hooks.castToScalar
       });
       var data = google.visualization.arrayToDataTable(arrayData);
       var view = new google.visualization.DataView(data)
-      view.setColumns([0, 2, 3, 4, 5, 6, 7])
+      view.setColumns([0, 1])
       var options = {
         weight: 900,
         height: 500,
-        title: 'Bulgaria GDP',
+        title: 'เงินเบี้ยหวัด บำเหน็จ บำนาญ',
         legend: {
           position: 'bottom'
         },
@@ -23,7 +23,7 @@ google.charts.load('current', {
           format: 'year '
         },
         vAxis: {
-          title: "GDP value (USD)",
+          title: "Budget(Million Baht)",
           viewWindowMode: 'explicit',
           viewWindow: {
             min: 0
@@ -35,17 +35,17 @@ google.charts.load('current', {
     });
   
     document.getElementById('Greece-Factor').addEventListener('click', function () {
-      $.get("./data/Greece-gdp.csv", function (csvString) {
+      $.get("./data/A4.csv", function (csvString) {
         var arrayData = $.csv.toArrays(csvString, {
           onParseValue: $.csv.hooks.castToScalar
         });
         var data = google.visualization.arrayToDataTable(arrayData);
         var view = new google.visualization.DataView(data)
-        view.setColumns([0, 2, 3, 4, 5, 6, 7])
+        view.setColumns([0, 1])
         var options = {
           weight: 900,
           height: 500,
-          title: 'Greece GDP',
+          title: 'เงินสำรอง เงินสมทบ และเงินชดเชยของข้าราชการ',
           legend: {
             position: 'bottom'
           },
@@ -54,7 +54,7 @@ google.charts.load('current', {
             format: 'year '
           },
           vAxis: {
-            title: "GDP value (USD)",
+            title: "Budget(Million Baht)",
             viewWindowMode: 'explicit',
             viewWindow: {
               min: 0
@@ -67,17 +67,17 @@ google.charts.load('current', {
     })
   
     document.getElementById('Bulgaria-Factor').addEventListener('click', function () {
-      $.get("./data/Bulgaria-gdp.csv", function (csvString) {
+      $.get("./data/A1.csv", function (csvString) {
         var arrayData = $.csv.toArrays(csvString, {
           onParseValue: $.csv.hooks.castToScalar
         });
         var data = google.visualization.arrayToDataTable(arrayData);
         var view = new google.visualization.DataView(data)
-        view.setColumns([0, 2, 3, 4, 5, 6, 7])
+        view.setColumns([0, 1])
         var options = {
           weight: 900,
           height: 500,
-          title: 'Bulgaria GDP',
+          title: 'เงินเบี้ยหวัด บำเหน็จ บำนาญ',
           legend: {
             position: 'bottom'
           },
@@ -86,7 +86,7 @@ google.charts.load('current', {
             format: 'year '
           },
           vAxis: {
-            title: "GDP value (USD)",
+            title: "Budget(Million Baht)",
             viewWindowMode: 'explicit',
             viewWindow: {
               min: 0
@@ -99,17 +99,17 @@ google.charts.load('current', {
     })
   
     document.getElementById('Romania-Factor').addEventListener('click', function () {
-      $.get("./data/Romania-gdp.csv", function (csvString) {
+      $.get("./data/A16.csv", function (csvString) {
         var arrayData = $.csv.toArrays(csvString, {
           onParseValue: $.csv.hooks.castToScalar
         });
         var data = google.visualization.arrayToDataTable(arrayData);
         var view = new google.visualization.DataView(data)
-        view.setColumns([0, 2, 3, 4, 5, 6, 7])
+        view.setColumns([0, 1])
         var options = {
           weight: 900,
           height: 500,
-          title: 'Romania GDP',
+          title: 'เงินสำรองจ่ายเพื่อกรณีฉุกเฉินหรือจำเป็น',
           legend: {
             position: 'bottom'
           },
@@ -118,7 +118,7 @@ google.charts.load('current', {
             format: 'year '
           },
           vAxis: {
-            title: "GDP value (USD)",
+            title: "Budget(Million Baht)",
             viewWindowMode: 'explicit',
             viewWindow: {
               min: 0
@@ -131,23 +131,23 @@ google.charts.load('current', {
     })
   
     document.getElementById('Poland-Factor').addEventListener('click', function(){
-      $.get("./data/Poland-gdp.csv", function(csvString) {
+      $.get("./data/A17.csv", function(csvString) {
           var arrayData = $.csv.toArrays(csvString, {onParseValue: $.csv.hooks.castToScalar});          
           var data = google.visualization.arrayToDataTable(arrayData);
           console.log(data);
           var view = new google.visualization.DataView(data)
-          view.setColumns([0, 2, 3, 4, 5, 6, 7])
+          view.setColumns([0, 1, 2, 3, 4])
           var options = {
             weight: 900,
             height: 500,
-            title: 'Poland GDP',
+            title: 'รายการงบกลางเปรียบเทียบกับงบกลางโดยรวม',
             legend: { position: 'bottom' },
             hAxis: {
               title : "Year",
               format : 'year '
             },
             vAxis: { 
-              title: "GDP value (USD)", 
+              title: "Budget(Million Baht)", 
               viewWindowMode:'explicit',
               viewWindow:{
               min:0
@@ -157,35 +157,4 @@ google.charts.load('current', {
           chart.draw(view, options);
     });})
   
-    document.getElementById('Russia-Factor').addEventListener('click', function () {
-      $.get("./data/Russia-gdp.csv", function (csvString) {
-        var arrayData = $.csv.toArrays(csvString, {
-          onParseValue: $.csv.hooks.castToScalar
-        });
-        var data = google.visualization.arrayToDataTable(arrayData);
-        var view = new google.visualization.DataView(data)
-        view.setColumns([0, 2, 3, 4, 5, 6, 7])
-        var options = {
-          weight: 900,
-          height: 500,
-          title: 'Russia GDP',
-          legend: {
-            position: 'bottom'
-          },
-          hAxis: {
-            title: "Year",
-            format: 'year '
-          },
-          vAxis: {
-            title: "GDP value (USD)",
-            viewWindowMode: 'explicit',
-            viewWindow: {
-              min: 0
-            }
-          }
-        };
-        var chart = new google.visualization.LineChart(document.getElementById('DashBoard-GDP-Factor'));
-        chart.draw(view, options);
-      });
-    })
   }
