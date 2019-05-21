@@ -20,31 +20,31 @@
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="./style.css" />
 </head>
-
 <body>
-    <nav class="navbar navbar-dark", style="background-color: #7bb8d9" >
-      <a class="navbar-brand navbar-brand-logo" href="#">
-        <span class="logo">
-          <img src = 'img/money.png' style="width:50px; height: 50px">
-        </span>
-        <span class="brand">Expenditure Central Budget </span>
-      </a>
-        <ul class="nav nav-pills">
-          <li class="nav-item">
-            <a class="nav-link" href="#revenue-year">Descriptive</a>
+  <nav class="navbar navbar-dark", style="background-color: #7bb8d9" >
+    <a class="navbar-brand navbar-brand-logo" href="#">
+      <span class="logo">
+        <img src = 'img/money.png' style="width:50px; height: 50px">
+      </span>
+      <span class="brand">Expenditure Central Budget </span>
+    </a>
+      <ul class="nav nav-pills">
+        <li class="nav-item">
+          <a class="nav-link" href="#revenue-year">Descriptive</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#gdp">GDP</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#gdp-country">Time Series</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#gdp">GDP</a>
-          </li>
-          <li class="nav-item">
-              <a class="nav-link" href="#gdp-country">Time Series</a>
-            </li>
-        </ul>
-    </nav>
-  <div data-aos="flip-down" id="map">
-      <div id="choropleth"></div>
-  </div>
-  <div class="container">
+      </ul>
+  </nav>
+<div data-aos="flip-down" id="map">
+    <div id="choropleth"></div>
+</div>
+<div class="container">
+
 
     <hr>
 
@@ -60,7 +60,7 @@
     <hr>
 
     <div data-aos = "fade-up" class="gdp-factor">
-        <img  id = 'gdp-factor' class="img_thumbnail">
+        <img  id = 'gdp-factor' class="img_thumbnail" >
         <h1>GDP - Factor</h1>
         <div id="DashBoard-GDP-Factor" class="graph" style="width: 1000px; height: 500px"></div>
         <div>
@@ -71,15 +71,19 @@
           <input class="btn btn-primary" type="button" id="Russia-Factor" value="Russia" />
         </div>
       </div>
+  
+      <hr>
+  
 
     <hr>
     <div data-aos = "fade-up"  class="Time" >
-        <img id = 'gdp-country' class="img_thumbnail">
-        <h1>Time Series Of Expenditure Central Budget</h1>
-        <div id="DashBoard-Time-Series" class="graph" style="width: 1000px; height: 500px"></div>
-    </div>
-    <hr>
+      <img id = 'gdp-country' class="img_thumbnail">
+      <h1>Time Series Of Expenditure Central Budget</h1>
+      <div id="DashBoard-Time-Series" class="graph" style="width: 1000px; height: 500px"></div>
+  </div>
 
+
+    <hr>
 
   </div>
 </body>
@@ -92,6 +96,5 @@
   });
   AOS.init();
 </script>
-
 
 </html>

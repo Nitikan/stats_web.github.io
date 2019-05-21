@@ -62,3 +62,18 @@ $.get("./data/revenue2.csv", function (res) {
     myChart.update()
 });
 
+$('#slider').change(function () {
+    $('#year').html("Year: " + $('#slider').val())
+    const year = $('#slider').val();
+    let data = [];
+    for (let i = 0; i < revenue[0].length; i++) {
+        myChart.data.datasets.forEach((dataset) => {
+            dataset.data.pop();
+        });
+    }
+
+    for (let i = 1; i < revenue.length; i++) {
+        myChart.data.datasets[0].data.push(revenue[i][year - 2002]);
+    }
+    myChart.update()
+});
